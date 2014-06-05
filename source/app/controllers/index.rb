@@ -14,7 +14,7 @@ end
 
 post '/sessions' do
   # sign-in
-  u = User.find_by_email params[:email]
+  u = User.find_by_username params[:username]
   if u.nil?
     erb :failed_login
   else
