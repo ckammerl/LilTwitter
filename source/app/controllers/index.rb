@@ -8,7 +8,7 @@ end
 #----------- SESSIONS -----------
 
 get '/sessions/new' do
-  # render sign-in page 
+  # render sign-in page
   erb :sign_in
 end
 
@@ -30,18 +30,20 @@ end
 get '/sessions/:id' do
 	session.clear
 	redirect ('/')
-  # sign-out -- invoked 
+  # sign-out -- invoked
 end
 
 #----------- USERS -----------
 
-get '/user/new' do
-  # render sign-up page
-  erb :sign_up
+get '/user/:username' do
+  @user = User.find_by_username(params[:username])
+  @tweets = @user.tweets
+  erb :user
 end
 
-post '/user' do
-  # sign-up a new user
-  User.create(username: params[:username], email: params[:email], password: params[:password])
-  redirect to('/')
+post '/user/:username' do
+  @user = User.find_by_username(params[:username])
+  @user.tweets << Tweet.create!(content: params[:content])
+  redirect "/user/#{@user.username}"
 end
+
