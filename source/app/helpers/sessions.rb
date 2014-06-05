@@ -1,4 +1,6 @@
 helpers do
+	include Rack::Utils
+  alias_method :h, :escape_html
 
   def current_user
     # TODO: return the current user if there is a user signed in.

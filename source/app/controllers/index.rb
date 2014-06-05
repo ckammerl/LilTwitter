@@ -1,7 +1,7 @@
 get '/' do
   # render home page
  #TODO: Show all users if user is signed in
- 	@users = User.all
+  @users = User.all
   erb :index
 end
 
@@ -28,12 +28,12 @@ post '/sessions' do
 end
 
 get '/sessions/:id' do
-	session.clear
-	redirect ('/')
+  session.clear
+  redirect ('/')
   # sign-out -- invoked 
 end
 
-#----------- USERS -----------
+#----------- REGISTER -----------
 
 get '/user/new' do
   # render sign-up page
@@ -44,4 +44,19 @@ post '/user' do
   # sign-up a new user
   User.create(username: params[:username], email: params[:email], password: params[:password])
   redirect to('/')
+end
+
+#----------- USERS -----------
+
+get '/user/:username' do
+  @user = User.find_by_username(params[:username])
+  @tweets = @user.tweets
+  erb :user
+end
+
+post '/user/:username' do
+  p params
+  @user = User.find_by_username(params[:username])
+  @user.tweets << Tweet.create!(content: params[:content])
+  redirect "/user/#{@user.username}"
 end
