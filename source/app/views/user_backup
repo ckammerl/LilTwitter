@@ -1,0 +1,20 @@
+<div class="background">
+  <span class="profile">
+      <img class="profile_photo" src="/img/default_pic.png">
+      <h1><%= @user.username %></h1>
+
+      <form action='/user/:username' method="post">
+        <textarea name="content" placeholder="Enter your tweet.."></textarea>
+        <input type="submit" value="tweet!">
+      </form>
+    </span>
+
+    <div class="tweets">
+      <h3>Tweets:</h3>  
+      <ul>
+        <% @tweets.reverse.each do |tweet| %>
+          <li><%= tweet.content %></li>
+        <% end %>
+      </ul>
+    </div>
+</div>
