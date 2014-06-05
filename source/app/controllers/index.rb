@@ -20,7 +20,7 @@ post '/sessions' do
   else
     if u.password == params[:password]
       session[:user_id] = u.id
-      redirect to('/')
+      redirect to("/user/#{u.username}")
     else
       erb :failed_login
     end
@@ -29,19 +29,19 @@ end
 
 get '/sessions/:id' do
 	session.clear
-	redirect to('/')
+	redirect ('/')
   # sign-out -- invoked 
 end
 
 #----------- USERS -----------
 
-get '/users/new' do
+get '/user/new' do
   # render sign-up page
   erb :sign_up
 end
 
-post '/users' do
+post '/user' do
   # sign-up a new user
-  User.create(name: params[:name], email: params[:email], password: params[:password])
+  User.create(username: params[:username], email: params[:email], password: params[:password])
   redirect to('/')
 end
