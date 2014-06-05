@@ -1,7 +1,7 @@
 get '/' do
   # render home page
  #TODO: Show all users if user is signed in
- 	@users = User.all
+  @users = User.all
   erb :index
 end
 
@@ -14,7 +14,7 @@ end
 
 post '/sessions' do
   # sign-in
-  u = User.find_by_email params[:email]
+  u = User.find_by_username params[:username]
   if u.nil?
     erb :failed_login
   else
@@ -28,12 +28,12 @@ post '/sessions' do
 end
 
 get '/sessions/:id' do
-	session.clear
-	redirect ('/')
+  session.clear
+  redirect ('/')
   # sign-out -- invoked 
 end
 
-#----------- USERS -----------
+#----------- REGISTER -----------
 
 get '/user/new' do
   # render sign-up page
@@ -45,6 +45,8 @@ post '/user' do
   User.create(username: params[:username], email: params[:email], password: params[:password])
   redirect to('/')
 end
+
+#----------- USERS -----------
 
 get '/user/:username' do
   @user = User.find_by_username(params[:username])
@@ -74,5 +76,3 @@ post '/search' do
   end
 
 end
-
-

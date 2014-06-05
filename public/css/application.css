@@ -1,0 +1,189 @@
+.background {
+  background: linear-gradient(#078724, #0E962C);
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.container {
+  margin: 20px auto;
+  width: 800px;
+  padding: 10px 20px 20px 20px;
+  border: 1px dotted black;
+  background-color: white;
+}
+
+.container h1 {
+  font-size: 17pt;
+  text-align: center;
+}
+
+.container h2 {
+  font-size: 15pt;
+  text-align: center;
+}
+
+.profile {
+  margin-top: 1em;
+  margin-left: 12em;
+  margin-right: 12em;
+  min-height: 400px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.profile h1 {
+  text-align: center;
+}
+
+.tweet {
+  min-height: 120px;
+  position: relative;
+  border: 1px solid black;
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-bottom: 3em;
+  margin-top: 1em;
+  border-radius: 10px;
+}
+
+.tweet_pic img {
+  float: left;
+  display: inline-block;
+  max-height: 3em;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.tweet_content {
+  display: table-cell;
+  padding: 0.75em;
+}
+
+.time {
+  float: right;
+  font-size: 0.75em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+nav {
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+}
+
+nav .brand, nav .brand a {
+  margin-left: 25px;
+  font-size: 18pt;
+  text-decoration: none;
+  color: #444;
+  width: 60%;
+  display: inline-block;
+}
+
+nav ul {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+  line-height: 0.75em;
+}
+
+nav li {
+  margin-right: 25px;
+  display: inline;
+}
+
+nav li a {
+  color: gray;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  text-decoration: underline;
+}
+
+form label {
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.errors {
+  color: red;
+}
+
+form.quirks {
+  display: inline-block;
+}
+
+.submit {
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+  float: left;
+  text-align: right;
+  margin-right: 20px;
+  width: 200px;
+}
+
+#sign-out input {
+  border:none;
+  background:none;
+  font-weight: :bold;
+}
+
+.profile_photo {
+  top: 2em;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 20%;
+  height: 8em;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  height: 1em;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.post_tweet {
+  text-align: center;
+}
+
+.post_tweet form {
+  height: 5em;
+  display: inline-block;
+  text-align: center;
+}
+
+.post_tweet textarea {
+  height: 4em;
+  width: 35em;
+  resize: none;
+}
+
+#submit_button {
+  float: right;
+}
