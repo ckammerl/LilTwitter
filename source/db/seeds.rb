@@ -6,6 +6,9 @@ require 'faker'
 
 
 # User.create :name => 'Dev Bootcamp Student', :email => 'me@example.com', :password => 'password'
-# 5.times do
-#   User.create :name => Faker::Name.name, :email => Faker::Internet.email, :password => 'password'
-# end
+50.times do
+ User.create(username: Faker::Name.last_name,email: Faker::Internet.email, password: (('A'..'Z').to_a.sample(2)+('a'..'z').to_a.sample(4)+(0..9).to_a.sample(2)).join(''))
+ 
+end
+
+

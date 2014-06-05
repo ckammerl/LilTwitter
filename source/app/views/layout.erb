@@ -21,7 +21,14 @@
       <% else %>
         <li><a href="/sessions/new">Sign In</a></li>
         <li><a href="/users/new">Sign Up</a></li>
-      <% end %>
+        <% end %>
+         <form action="/search" method="post">
+        <input type="text" name="username" placeholder="Search username...">
+        <%if @found == false %>
+        <%= "User not found" %>
+        <% end %>
+       </form>
+       
     </ul>
   </nav>
 
