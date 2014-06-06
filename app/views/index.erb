@@ -1,9 +1,36 @@
 <div class="background">
 	<div class="index">
-	    <h1>Welcome</h1>
-	    <h2>Please Sign In</h2>
-	  <%# TODO: 
-	  1. If user is not signed in - display "Welcome".
-	  2. If user is signed in then  display all users %>
+		<% if current_user %>
+		<h1>Tweets By Users You Follow:</h1>
+		<% @flat.reverse.each do |tweet| %>
+        <div class="tweet"> 
+          <div class="tweet_body">
+            <span class="tweet_pic"><img src="/img/default_pic.png">
+            </span>
+            <% if current_user == User.find(tweet.user_id) %>
+	            <span class="delete">
+	              <form action="/delete/<%= tweet.id %>" method="post">
+	                <input type="hidden" name="_method" value="delete">
+	                <input type="submit" value="Delete">  
+	              </form>
+	            </span>
+	        <% end %>
+            <span class="tweet_content">
+              <%=h tweet.content %>
+            </span>
+          </div>
+          <div class="tweet_footer">
+            <span class="retweet_follow">
+            </span>
+            <span class="time">
+              Created at: <%= tweet.created_at %> by <%= User.find(tweet.user_id).username %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+        <% else %>
+	        <h1>Welcome</h1>
+		    <h2>Please Sign In</h2>
+	    <% end %>
 	</div>
 </div>

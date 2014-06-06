@@ -220,3 +220,11 @@ footer {
   padding-right: 0.08em;
   padding-bottom: 0.5em;
 }
+.follow {
+  top: 2em;
+  text-align: center;
+  position: relative;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -1,8 +1,13 @@
 get '/' do
-  # render home page
- #TODO: Show all users if user is signed in
-  @users = User.all
-  erb :index
+  if current_user
+    @tweets = []
+    current_user.followed_users.each { |followed| @tweets << followed.tweets}
+    @flat = @tweets.flatten
+    @flat.sort_by!{|tweet| tweet.created_at}
+    erb :index
+  else
+    erb :index
+  end
 end
 
 #----------- SESSIONS -----------
@@ -89,3 +94,21 @@ delete '/delete/:id' do
   t.destroy
   redirect to "/user/#{u}"
 end
+
+#-------Follow----------
+
+
+delete '/follow/:id' do
+  followed = User.find(params[:id])
+  current_user.follow!(followed)
+  redirect to "/user/#{followed.username}"
+end
+
+delete '/unfollow/:id' do
+  followed = User.find(params[:id])
+  current_user.unfollow!(followed)
+  redirect to "/user/#{followed.username}"
+end
+  
+
+
