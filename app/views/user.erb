@@ -4,13 +4,15 @@
     <br>
     <h1><%= @user.username %></h1>
     <br>
-    <% if current_user.username == @user.username %>
-    <div class="post_tweet">
-      <form action='/user/<%= @user.username %>' method="post">
-        <textarea maxlength="140" name="content" placeholder="Enter your tweet.."></textarea><br>
-        <input id="submit_button" type="submit" value="Tweet">
-      </form>
-    </div>
+    <% if current_user %>
+      <% if current_user.username == @user.username %>
+        <div class="post_tweet">
+          <form action='/user/<%= @user.username %>' method="post">
+            <textarea maxlength="140" name="content" placeholder="Enter your tweet.."></textarea><br>
+            <input id="submit_button" type="submit" value="Tweet">
+          </form>
+        </div>
+      <% end %>
     <% else %>
     <% end %>
     <% @tweets.reverse.each do |tweet| %>

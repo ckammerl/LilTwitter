@@ -6,30 +6,37 @@
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
 
   <title>Lil' Twitter</title>
 </head>
 <body>
 
   <nav>
-    <div class="brand"><a href="/">Lil' Twitter</a>
-    </div>
-    <ul>
-      <% if current_user %>
-        <li><a href="/user/<%= current_user.username %>">Profile Page</a></li>
-        <li><a href="/sessions/<%= current_user.id %>">Sign Out</a></li>
-      <% else %>
-        <li><a href="/sessions/new">Sign In</a></li>
-        <li><a href="/user/new">Sign Up</a></li>
-      <% end %>
-    </ul>
+        <span class="search">
+          <form action="/search" method="post">
+            <input type="text" name="search" placeholder="Search username..." size="13">
+           </form>
+         </span>
+
+        <span class="brand">
+          <a href="/">Lil' Twitter</a>
+        </span>
+ 
+        <ul class="login_nav">
+          <% if current_user %>
+            <li><a href="/user/<%= current_user.username %>">Profile Page</a></li>
+            <li><a href="/sessions/<%= current_user.id %>">Sign Out</a></li>
+          <% else %>
+            <li><a href="/sessions/new">Sign In</a></li>
+            <li><a href="/user/new">Sign Up</a></li>
+          <% end %>
+        </ul>
   </nav>
 
   <%= yield %>
 
   <footer>
-      &copy; Fence Lizards 2014
+    &copy; Fence Lizards 2014
   </footer>
 
 </body>

@@ -55,8 +55,23 @@ get '/user/:username' do
 end
 
 post '/user/:username' do
-  p params
   @user = User.find_by_username(params[:username])
   @user.tweets << Tweet.create!(content: params[:content])
   redirect "/user/#{@user.username}"
+end
+
+
+
+#------Search-------
+
+post '/search' do
+  @username = params[:search]
+  if (User.find_by_username(@username).nil?)
+    redirect to("/")
+  else
+    @username = User.find_by_username(@username).username
+    @found = true
+    redirect to("/user/#{@username}")
+  end
+
 end
