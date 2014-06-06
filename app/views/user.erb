@@ -20,6 +20,12 @@
       <div class="tweet_body">
         <span class="tweet_pic"><img src="/img/default_pic.png">
         </span>
+        <span class="delete">
+          <form action="/delete/<%= tweet.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete">  
+          </form>
+        </span>
         <span class="tweet_content">
           <%=h tweet.content %>
         </span>

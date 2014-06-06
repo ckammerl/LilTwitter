@@ -80,3 +80,12 @@ post '/search' do
   end
 
 end
+
+#-----DeleteTweet---------
+
+delete '/delete/:id' do
+  t = Tweet.find(params[:id])
+  u = User.find(t.user_id).username
+  t.destroy
+  redirect to "/user/#{u}"
+end

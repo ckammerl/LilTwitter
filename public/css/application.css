@@ -210,3 +210,13 @@ footer {
 .index h1, .index h2 {
   text-align: center;
 }
+
+.delete {
+  float: right;
+  display: inline-block;
+  max-height: 3em;
+  padding-left: 0.5em;
+  padding-top: 0.06em;
+  padding-right: 0.08em;
+  padding-bottom: 0.5em;
+}
