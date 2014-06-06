@@ -42,7 +42,12 @@ end
 
 post '/user' do
   # sign-up a new user
-  User.create(username: params[:username], email: params[:email], password: params[:password])
+  # User.create(username: params[:username], email: params[:email], password: params[:password])
+  u = User.new
+  u.username = params[:username]
+  u.email = params[:email]
+  u.password = params[:password]
+  u.save!
   redirect to('/')
 end
 

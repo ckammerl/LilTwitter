@@ -24,12 +24,12 @@ class User < ActiveRecord::Base
     relationships.find_by_followed_id(other_user.id).destroy
   end
 
-  # def password
-  #   @password ||= Password.new(password_hash)
-  # end
+  def password
+    @password ||= Password.new(password_hash)
+  end
 
-  # def password=(new_password)
-  #   @password = Password.create(new_password)
-  #   self.password_hash = @password
-  # end
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
 end
