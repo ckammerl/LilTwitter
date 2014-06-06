@@ -210,28 +210,13 @@ footer {
 .index h1, .index h2 {
   text-align: center;
 }
-.delete{
 
-   float: right;
+.delete {
+  float: right;
   display: inline-block;
   max-height: 3em;
   padding-left: 0.5em;
   padding-top: 0.06em;
   padding-right: 0.08em;
   padding-bottom: 0.5em;
-/*  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  border-radius: 10px;*/
-
 }
-
-/*#submit {
- color: #fff;
- font-size: 0;
- width: 135px;
- height: 60px;
- border: none;
- margin: 0;
- padding: 0;
- background: #0c0 url(image) 0 0 no-repeat; 
-}*/

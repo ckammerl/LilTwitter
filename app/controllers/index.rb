@@ -89,15 +89,3 @@ delete '/delete/:id' do
   t.destroy
   redirect to "/user/#{u}"
 end
-
-
-
-
-
-
-
-
-
-
-
-
