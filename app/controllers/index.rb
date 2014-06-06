@@ -65,11 +65,10 @@ end
 #------Search-------
 
 post '/search' do
- @username = params[:username]
- if (User.find_by_username(@username).nil?)
-   @found = false
-   erb :index
- else
+  @username = params[:search]
+  if (User.find_by_username(@username).nil?)
+    redirect to("/")
+  else
     @username = User.find_by_username(@username).username
     @found = true
     redirect to("/user/#{@username}")

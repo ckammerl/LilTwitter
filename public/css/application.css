@@ -75,29 +75,26 @@
 }
 
 nav {
+  text-align: center;
   width: 100%;
   height: 40px;
   font-weight: bold;
 }
 
 nav .brand, nav .brand a {
-  margin-left: 25px;
+  padding-left: 1.1em;
   font-size: 18pt;
   text-decoration: none;
   color: #444;
-  width: 60%;
-  display: inline-block;
+  display: inline;
 }
 
 nav ul {
-  display: inline-block;
-  width: 30%;
-  text-align: right;
-  line-height: 0.75em;
+  display: inline;
+  line-height: 0.5em;
 }
 
 nav li {
-  margin-right: 25px;
   display: inline;
 }
 
@@ -110,9 +107,12 @@ nav li a:hover {
   text-decoration: underline;
 }
 
+nav ul li form {
+  display: inline;
+}
+
 form label {
   font-weight: bold;
-  margin-right: 20px;
 }
 
 input {
@@ -186,4 +186,27 @@ footer {
 
 #submit_button {
   float: right;
+}
+
+.search {
+  padding: 0.5em;
+  float: left;
+}
+
+.login_nav {
+  float: right;
+  padding-right: 1em;
+}
+
+.index {
+  margin-top: 1em;
+  margin-left: 12em;
+  margin-right: 12em;
+  min-height: 400px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.index h1, .index h2 {
+  text-align: center;
 }

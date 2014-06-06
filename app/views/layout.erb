@@ -6,30 +6,23 @@
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
 
   <title>Lil' Twitter</title>
 </head>
 <body>
 
   <nav>
-    <ul>
-      <li>
-        <div class="search">
+        <span class="search">
           <form action="/search" method="post">
-            <input type="text" name="username" placeholder="Search username...">
-            <%if @found == false %>
-              <%= "User not found" %>
-            <% end %>
+            <input type="text" name="search" placeholder="Search username..." size="13">
            </form>
-        </div>
-      </li>
-        <div class="brand"><a href="/">Lil' Twitter</a>
-        </div>
-      <li>
-      </li>
-      <li>
-        <ul>
+         </span>
+
+        <span class="brand">
+          <a href="/">Lil' Twitter</a>
+        </span>
+ 
+        <ul class="login_nav">
           <% if current_user %>
             <li><a href="/user/<%= current_user.username %>">Profile Page</a></li>
             <li><a href="/sessions/<%= current_user.id %>">Sign Out</a></li>
@@ -38,14 +31,12 @@
             <li><a href="/user/new">Sign Up</a></li>
           <% end %>
         </ul>
-      </li>
-    </ul>
   </nav>
 
   <%= yield %>
 
   <footer>
-      &copy; Fence Lizards 2014
+    &copy; Fence Lizards 2014
   </footer>
 
 </body>
